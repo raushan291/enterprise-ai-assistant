@@ -1,0 +1,16 @@
+fastapi
+uvicorn[standard]
+chromadb
+sentence-transformers
+transformers
+accelerate
+peft
+bitsandbytes
+datasets
+mlflow
+uvicorn
+python-multipart
+pydantic
+requests
+loguru
+pytest
