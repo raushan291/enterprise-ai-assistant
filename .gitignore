@@ -1,0 +1,73 @@
+# Python
+**/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pkl
+*.db
+*.sqlite
+*.log
+
+# Virtual environments
+.venv/
+venv/
+*.env
+*.env.*
+!example.env   # keep a template example
+
+# VSCode IDE
+.vscode/
+
+# Project-specific Data
+data/raw/*
+data/qa_dataset/*
+data/processed/*
+data/prom_data/*
+
+# Keep these folders but ignore their contents
+!data/raw/.gitkeep
+!data/qa_dataset/.gitkeep
+!data/processed/.gitkeep
+!data/prom_data/.gitkeep
+
+# Embeddings / Vector Stores / Index Files
+*.npy
+*.npz
+*.pt
+*.bin
+index.faiss
+chroma_db/
+vectordb/
+
+# Uploaded or generated files
+uploads/
+outputs/
+results/
+cache/
+.tmp/
+temp/
+tmp/
+
+# Secrets / Keys / Tokens
+*.pem
+*.key
+*.crt
+*.password
+secrets.json
+**/credentials.json
+
+# Docker / Build Artifacts
+*.egg-info/
+dist/
+build/
+*.tar.gz
+*.whl
+
+# Logs
+logs/
+*.log
+
+# Jupyter
+notebooks/
+.ipynb_checkpoints/
+*.ipynb

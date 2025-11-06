@@ -9,8 +9,16 @@ bitsandbytes
 datasets
 mlflow
 uvicorn
+prometheus_client
+guardrails-ai
 python-multipart
 pydantic
+pydantic-settings
 requests
+redis
 loguru
 pytest
+pypdf2
+python-docx
+langchain==0.3.23
+cryptography<41
