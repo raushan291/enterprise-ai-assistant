@@ -7,8 +7,7 @@ from chromadb.config import Settings
 
 from src.config.settings import settings
 
-# Persistent Chroma client
-# client = chromadb.PersistentClient(path=settings.CHROMA_PATH)
+# Chroma client
 client = HttpClient(host=settings.CHROMA_SERVER_HOST, port=settings.CHROMA_SERVER_PORT)
 
 # Embedding setup
