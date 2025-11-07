@@ -37,6 +37,9 @@ class Settings(BaseSettings):
     REDIS_DB: int = Field(default=0, env="REDIS_DB")
     CACHE_TTL: int = Field(default=3600, env="CACHE_TTL")  # 1 hour default
 
+    # Conversational memory
+    MAX_TURNS: int = 10
+
     # Chunking
     CHUNK_SIZE: int = 512
     CHUNK_OVERLAP: int = 100

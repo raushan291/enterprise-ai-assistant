@@ -4,6 +4,7 @@ from guardrails import Guard, OnFailAction
 from guardrails.hub import DetectPII, ToxicLanguage
 from prometheus_client import Histogram
 
+from src.config.settings import settings
 from src.models.inference import generate_response
 from src.utils.cache import cache_get, cache_set
 from src.utils.conversation_memory import ConversationMemory
@@ -20,7 +21,7 @@ INFERENCE_LATENCY = Histogram(
 )
 
 # Conversation memory setup
-memory = ConversationMemory(max_turns=10)
+memory = ConversationMemory(max_turns=settings.MAX_TURNS)
 
 # Guardrails safety setup
 guard = Guard().use_many(
