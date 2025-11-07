@@ -144,6 +144,7 @@ guardrails hub install hub://guardrails/toxic_language
 * **ChromaDB** as the vector database for embeddings storage and retrieval
 * **Redis** for caching and conversation memory
 * **Guardrails** for safety validation
+* **Pydantic** for data validation and serialization
 * **Prometheus** for metrics ingestion
 * **Grafana** for monitoring and dashboard visualization
 
