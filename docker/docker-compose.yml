@@ -32,6 +32,11 @@ services:
     container_name: chroma
     ports:
       - "8000:8000"
+    environment:
+      CHROMA_DB_IMPL: "duckdb+parquet"
+      CHROMA_SERVER_AUTH_ENABLED: "false"
+    volumes:
+    - data/chroma_db:/data
 
   prometheus:
     image: prom/prometheus

@@ -41,3 +41,11 @@ def cache_set(prefix: str, text: str, value) -> None:
     client = get_redis_client()
     key = _make_key(prefix, text)
     client.setex(key, settings.CACHE_TTL, json.dumps(value))
+
+
+def cache_clear(prefix: str) -> None:
+    """Remove all cached entries whose keys start with the given prefix."""
+    client = get_redis_client()
+    client = get_redis_client()
+    for key in client.scan_iter(f"{prefix}:*"):
+        client.delete(key)

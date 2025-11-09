@@ -50,6 +50,9 @@ class Settings(BaseSettings):
     # Logging
     LOG_LEVEL: str = "INFO"
 
+    # Backend API URL
+    API_URL: str = "http://0.0.0.0:8001/query"
+
     class Config:
         env_file = ".env"
         env_file_encoding = "utf-8"

@@ -22,3 +22,11 @@ class ConversationMemory:
     def clear(self) -> None:
         """Clear all stored conversation history from memory."""
         self.history.clear()
+
+    def get_history(self) -> list:
+        """Return stored conversation history from memory."""
+        result = []
+        for hist in self.history:
+            result.append({"role": "user", "text": hist["user"]})
+            result.append({"role": "assistant", "text": hist["assistant"]})
+        return result

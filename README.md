@@ -43,7 +43,7 @@ Edit `.env` and set values.
 
 ---
 
-## 🚀 Start the API Server
+## 🚀 Run the Backend API and Chat UI
 
 Ensure your Python environment is set up with dependencies installed.
 
@@ -53,7 +53,29 @@ Start the FastAPI server:
 uvicorn src.api.main:app --host 0.0.0.0 --port 8001
 ```
 
+Start the Streamlit UI:
+
+```bash
+streamlit run ui/chat_app.py
+```
+
 ---
+
+## 🧠 Vector Database (ChromaDB) Setup
+
+ChromaDB stores embeddings for search and retrieval.
+
+```bash
+mkdir -p data/chroma_db
+
+docker run -d \
+  --name chroma \
+  -p 8000:8000 \
+  -e CHROMA_DB_IMPL=duckdb+parquet \
+  -e CHROMA_PERSIST_DIRECTORY=/data \
+  -v $(pwd)/data/chroma_db:/data \
+  chromadb/chroma:latest
+```
 
 ## 🔧 Redis Setup
 
