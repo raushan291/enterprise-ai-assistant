@@ -162,6 +162,7 @@ guardrails hub install hub://guardrails/toxic_language
 ---
 
 ## 🏗️ System Architecture
+* **Streamlit** for the UI and interactive chat interface
 * **FastAPI** backend for API
 * **ChromaDB** as the vector database for embeddings storage and retrieval
 * **Redis** for caching and conversation memory
