@@ -95,7 +95,7 @@ docker run -d --name redis -p 6379:6379 redis:latest
 
 ---
 
-## 📊 Install and Start Grafana
+## 📊 Grafana Setup
 
 Grafana is used for monitoring dashboard visualization.
 
