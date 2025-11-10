@@ -19,6 +19,11 @@ def save_to_chroma(
         host=settings.CHROMA_SERVER_HOST, port=settings.CHROMA_SERVER_PORT
     )
     collection = client.get_or_create_collection(settings.TMP_COLLECTION_NAME)
+    # Convert non-string docs to string form (e.g., QA pairs)
+    texts = [
+        text if isinstance(text, str) else f"Q: {text.question}\nA: {text.answer}"
+        for text in texts
+    ]
     ids = [f"{source_name}_{source_type}_{i}" for i in range(len(embeddings))]
     metadatas = [
         {"source": source_name, "type": source_type} for _ in range(len(embeddings))
@@ -45,7 +50,6 @@ def run_pipeline() -> None:
             chunks_file, settings.DATA_PROCESSED_DIR, raw_path
         )
         save_to_chroma(
-            settings.CHROMA_PATH,
             chunks,
             chunk_embeddings,
             base_name,
@@ -54,9 +58,7 @@ def run_pipeline() -> None:
         qa_pairs = generate_qa_pairs(chunks_file, qa_file)
         # Embed and store QA pairs
         qa_embeddings = embed_qa_dataset(qa_file, settings.DATA_PROCESSED_DIR, raw_path)
-        save_to_chroma(
-            settings.CHROMA_PATH, qa_pairs, qa_embeddings, base_name, source_type="qa"
-        )
+        save_to_chroma(qa_pairs, qa_embeddings, base_name, source_type="qa")
 
     print("RAG Dataset Pipeline completed for ALL raw files!")
 

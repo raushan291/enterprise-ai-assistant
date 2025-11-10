@@ -17,10 +17,8 @@ class Settings(BaseSettings):
     DATA_PROCESSED_DIR: str = "data/processed"
 
     # Database
-    CHROMA_PATH: str = "data/chroma_db"
     COLLECTION_NAME: str = "medical_knowledge_base"
     TMP_COLLECTION_NAME: str = "medical_knowledge_base_tmp"
-    # Server Mode
     CHROMA_API_IMPL: str = "rest"
     CHROMA_SERVER_HOST: str = "localhost"
     CHROMA_SERVER_PORT: int = 8000
