@@ -215,7 +215,7 @@ This project is licensed under the **PolyForm Noncommercial License 1.0.0**.
 You may use, modify, and share this project for **personal, academic, or research purposes**.  
 **Commercial use is not permitted.**
 
-See the `LICENSE` file for the full text.
+See the [`LICENSE`](./LICENSE) file for the full text.
 
 ---
 
