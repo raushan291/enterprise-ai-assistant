@@ -95,6 +95,34 @@ docker run -d --name redis -p 6379:6379 redis:latest
 
 ---
 
+### 📈 MLflow Setup (Experiment Tracking)
+
+MLflow is used for tracking model training runs, parameters, metrics, and artifacts.
+
+**Local Development Setup (SQLite backend)**
+
+Start the MLflow tracking server locally:
+
+```bash
+mlflow server \
+  --backend-store-uri sqlite:///mlflow.db \
+  --default-artifact-root ./mlruns \
+  --host 127.0.0.1 \
+  --port 5000
+```
+
+**Optional: Production Setup**
+
+```bash
+mlflow server \
+  --backend-store-uri postgresql://user:password@host:5432/mlflowdb \
+  --default-artifact-root s3://mlflow-artifacts/ \
+  --host 0.0.0.0 \
+  --port 5000
+```
+
+---
+
 ## 📊 Grafana Setup
 
 Grafana is used for monitoring dashboard visualization.
@@ -168,6 +196,7 @@ guardrails hub install hub://guardrails/toxic_language
 * **Redis** for caching and conversation memory
 * **Guardrails** for safety validation
 * **Pydantic** for data validation and serialization
+* **MLflow** for experiment tracking, model versioning, and metric logging 
 * **Prometheus** for metrics ingestion
 * **Grafana** for monitoring and dashboard visualization
 

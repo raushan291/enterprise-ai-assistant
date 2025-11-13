@@ -63,6 +63,12 @@ class Settings(BaseSettings):
     LORA_LAYERS_PATTERN: str | None = None
     LORA_INFERENCE_MODE: bool = False
 
+    # MlFlow configuration
+    ENABLE_MLFLOW_LOGGING: bool = True
+    MLFLOW_TRACKING_URI: str = "http://127.0.0.1:5000"
+    MLFLOW_EXPERIMENT_NAME: str = "flan_t5_finetuning"
+    MLFLOW_RUN_NAME: str = "flan_t5_lora_run_01"
+
     # Redis
     REDIS_HOST: str = Field(default="127.0.0.1", env="REDIS_HOST")
     REDIS_PORT: int = Field(default=6379, env="REDIS_PORT")
