@@ -38,6 +38,7 @@ data/prom_data/*
 index.faiss
 chroma_db/
 vectordb/
+postgres/
 
 # Uploaded or generated files
 uploads/

@@ -103,7 +103,9 @@ services:
       - ../data/postgres:/var/lib/postgresql/data
 
   mlflow:
-    image: ghcr.io/mlflow/mlflow:v2.14.1
+    build:
+      context: ..
+      dockerfile: docker/mlflow.Dockerfile
     container_name: mlflow
     depends_on:
       - postgres
