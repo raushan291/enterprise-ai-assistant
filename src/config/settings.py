@@ -89,7 +89,7 @@ class Settings(BaseSettings):
     LOG_LEVEL: str = "INFO"
 
     # Backend API URL
-    API_URL: str = "http://0.0.0.0:8001/query"
+    API_URL: str = "http://api:8001/query"  # "http://0.0.0.0:8001/query"
 
     class Config:
         env_file = ".env"

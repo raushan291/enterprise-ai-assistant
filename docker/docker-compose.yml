@@ -5,6 +5,7 @@ services:
     build:
       context: ..
       dockerfile: docker/Dockerfile
+    image: eka-base:latest
     container_name: fastapi_app
     ports:
       - "8001:8001"
@@ -24,9 +25,7 @@ services:
     - ../:/app
 
   streamlit:
-    build:
-      context: ..
-      dockerfile: docker/Dockerfile
+    image: eka-base:latest
     container_name: streamlit_ui
     ports:
       - "8501:8501"
@@ -51,7 +50,7 @@ services:
       CHROMA_DB_IMPL: "duckdb+parquet"
       CHROMA_SERVER_AUTH_ENABLED: "false"
     volumes:
-    - data/chroma_db:/data
+      - ../data/chroma_db:/data
 
   prometheus:
     image: prom/prometheus
@@ -81,8 +80,8 @@ services:
   #     MLFLOW_BACKEND_STORE_URI: sqlite:///mlflow.db
   #     MLFLOW_DEFAULT_ARTIFACT_ROOT: /mlruns
   #   volumes:
-  #     - ./mlruns:/mlruns
-  #     - ./mlflow.db:/mlflow.db
+  #     - ../mlruns:/mlruns
+  #     - ../mlflow.db:/mlflow.db
   #   command: >
   #     mlflow server
   #     --backend-store-uri sqlite:///mlflow.db
@@ -101,7 +100,7 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - ./data/postgres:/var/lib/postgresql/data
+      - ../data/postgres:/var/lib/postgresql/data
 
   mlflow:
     image: ghcr.io/mlflow/mlflow:v2.14.1
