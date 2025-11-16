@@ -7,10 +7,10 @@ RUN pip install psycopg2-binary
 # Create a user named 'mlflow' with home directory and proper permissions
 RUN useradd -m -s /bin/bash mlflow
 
-# Set ownership of /app to mlflow
-RUN mkdir -p /app && chown -R mlflow:mlflow /app
+# Set ownership of /mlflow to mlflow
+RUN mkdir -p /mlflow && chown -R mlflow:mlflow /mlflow
 
-WORKDIR /app
+WORKDIR /mlflow
 
 # Switch to mlflow user
 USER mlflow

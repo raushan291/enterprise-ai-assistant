@@ -23,6 +23,7 @@ data/raw/*
 data/qa_dataset/*
 data/processed/*
 data/prom_data/*
+data/mlflow/
 
 # Keep these folders but ignore their contents
 !data/raw/.gitkeep

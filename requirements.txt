@@ -24,3 +24,9 @@ langchain==0.3.23
 cryptography<41
 streamlit
 boto3
+evaluate
+absl-py
+rouge_score
+bert-score 
+nltk
+sacrebleu

@@ -23,6 +23,7 @@ services:
     command: uvicorn src.api.main:app --host 0.0.0.0 --port 8001
     volumes:
     - ../:/app
+    - ../data/mlflow/mlruns:/mlflow/mlruns
 
   streamlit:
     image: eka-base:latest
@@ -77,17 +78,18 @@ services:
   #   ports:
   #     - "5000:5000"
   #   environment:
-  #     MLFLOW_BACKEND_STORE_URI: sqlite:///mlflow.db
-  #     MLFLOW_DEFAULT_ARTIFACT_ROOT: /mlruns
+  #     MLFLOW_BACKEND_STORE_URI: sqlite:////mlflow/mlflow.db
+  #     MLFLOW_DEFAULT_ARTIFACT_ROOT: /mlflow/mlruns
   #   volumes:
-  #     - ../mlruns:/mlruns
-  #     - ../mlflow.db:/mlflow.db
+  #     - ../data/mlflow/mlruns:/mlflow/mlruns
+  #     - ../data/mlflow/mlflow.db:/mlflow/mlflow.db
   #   command: >
   #     mlflow server
-  #     --backend-store-uri sqlite:///mlflow.db
-  #     --default-artifact-root /mlruns
+  #     --backend-store-uri sqlite:////mlflow/mlflow.db
+  #     --default-artifact-root  /mlflow/mlruns
   #     --host 0.0.0.0
   #     --port 5000
+  #   mem_limit: 4g
 
   # Option 2: MLflow (Production: PostgreSQL Backend)
   postgres:
