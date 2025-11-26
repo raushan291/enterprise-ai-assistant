@@ -1,0 +1,47 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: eka-ingress
+  namespace: default
+  annotations:
+    kubernetes.io/ingress.class: nginx
+spec:
+  ingressClassName: nginx
+  rules:
+    - http:
+        paths:
+          # UI homepage
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: eka-ui
+                port:
+                  number: 8501
+
+          # API
+          - path: /api
+            pathType: Prefix
+            backend:
+              service:
+                name: eka-api
+                port:
+                  number: 8001
+
+          # Chroma
+          - path: /chroma
+            pathType: Prefix
+            backend:
+              service:
+                name: chroma
+                port:
+                  number: 8000
+
+          # Redis
+          - path: /redis
+            pathType: Prefix
+            backend:
+              service:
+                name: redis
+                port:
+                  number: 6379
