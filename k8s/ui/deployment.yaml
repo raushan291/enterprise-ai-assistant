@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eka-ui
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: eka-ui
+  template:
+    metadata:
+      labels:
+        app: eka-ui
+    spec:
+      containers:
+        - name: streamlit-ui
+          image: raushan0291/eka-base:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8501
+          env:
+            - name: API_URL
+              value: "http://eka-api:8001/query"
+          command: ["streamlit", "run", "ui/chat_app.py", "--server.address", "0.0.0.0", "--server.port", "8501"]

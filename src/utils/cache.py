@@ -10,8 +10,8 @@ from src.config.settings import settings
 def get_redis_client() -> redis.Redis:
     """Create and return a Redis client instance using configured settings."""
     return redis.StrictRedis(
-        host=settings.REDIS_HOST,
-        port=settings.REDIS_PORT,
+        host=settings.REDIS_SERVER_HOST,
+        port=settings.REDIS_SERVER_PORT,
         db=settings.REDIS_DB,
         decode_responses=True,
     )

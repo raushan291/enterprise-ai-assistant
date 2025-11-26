@@ -24,6 +24,7 @@ data/qa_dataset/*
 data/processed/*
 data/prom_data/*
 data/mlflow/
+data/postgres/
 
 # Keep these folders but ignore their contents
 !data/raw/.gitkeep
@@ -39,7 +40,6 @@ data/mlflow/
 index.faiss
 chroma_db/
 vectordb/
-postgres/
 
 # Uploaded or generated files
 uploads/

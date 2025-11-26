@@ -20,7 +20,7 @@ class Settings(BaseSettings):
     COLLECTION_NAME: str = "medical_knowledge_base"
     TMP_COLLECTION_NAME: str = "medical_knowledge_base_tmp"
     CHROMA_API_IMPL: str = "rest"
-    CHROMA_SERVER_HOST: str = "localhost"
+    CHROMA_SERVER_HOST: str = "chroma"  # "localhost"
     CHROMA_SERVER_PORT: int = 8000
 
     # Model configs
@@ -70,8 +70,8 @@ class Settings(BaseSettings):
     MLFLOW_RUN_NAME: str = "flan_t5_lora_run_01"
 
     # Redis
-    REDIS_HOST: str = Field(default="127.0.0.1", env="REDIS_HOST")
-    REDIS_PORT: int = Field(default=6379, env="REDIS_PORT")
+    REDIS_SERVER_HOST: str = Field(default="127.0.0.1", env="REDIS_SERVER_HOST")
+    REDIS_SERVER_PORT: int = Field(default=6379, env="REDIS_SERVER_PORT")
     REDIS_DB: int = Field(default=0, env="REDIS_DB")
     CACHE_TTL: int = Field(default=3600, env="CACHE_TTL")  # 1 hour default
 
@@ -89,7 +89,9 @@ class Settings(BaseSettings):
     LOG_LEVEL: str = "INFO"
 
     # Backend API URL
-    API_URL: str = "http://api:8001/query"  # "http://0.0.0.0:8001/query"
+    API_URL: str = (
+        "http://eka-api:8001/query"  # "http://api:8001/query"  # "http://0.0.0.0:8001/query"
+    )
 
     class Config:
         env_file = ".env"

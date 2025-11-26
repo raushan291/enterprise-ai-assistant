@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: eka-ui
+spec:
+  selector:
+    app: eka-ui
+  ports:
+    - port: 8501
+      targetPort: 8501
+      nodePort: 30501
+  type: LoadBalancer
