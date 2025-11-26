@@ -189,6 +189,21 @@ guardrails hub install hub://guardrails/toxic_language
 
 ---
 
+## ☸️ Kubernetes Deployment
+
+This project includes a **full Kubernetes deployment** using automation scripts inside `scripts/` directory.
+
+1. Deploy the Entire System
+
+```bash
+bash scripts/deploy_k8s.sh
+```
+
+2. Stop & Clean Up
+```bash
+bash scripts/stop_k8s.sh
+```
+
 ## 🏗️ System Architecture
 * **Streamlit** for the UI and interactive chat interface
 * **FastAPI** backend for API
@@ -199,6 +214,7 @@ guardrails hub install hub://guardrails/toxic_language
 * **MLflow** for experiment tracking, model versioning, and metric logging 
 * **Prometheus** for metrics ingestion
 * **Grafana** for monitoring and dashboard visualization
+* **Kubernetes (Deployments, Services, Ingress)** for orchestration
 
 ---
 
