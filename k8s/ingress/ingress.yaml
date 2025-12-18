@@ -28,20 +28,22 @@ spec:
                 port:
                   number: 8001
 
-          # Chroma
-          - path: /chroma
-            pathType: Prefix
-            backend:
-              service:
-                name: chroma
-                port:
-                  number: 8000
+          # Ingress should expose only publice entry points like UI and API.
+          # Internal services like Chroma and Redis should not be exposed via Ingress for security reasons
+          # # Chroma
+          # - path: /chroma
+          #   pathType: Prefix
+          #   backend:
+          #     service:
+          #       name: chroma
+          #       port:
+          #         number: 8000
 
-          # Redis
-          - path: /redis
-            pathType: Prefix
-            backend:
-              service:
-                name: redis
-                port:
-                  number: 6379
+          # # Redis
+          # - path: /redis
+          #   pathType: Prefix
+          #   backend:
+          #     service:
+          #       name: redis
+          #       port:
+          #         number: 6379
