@@ -33,24 +33,41 @@ jobs:
             raushan0291/eka-api:latest
             raushan0291/eka-api:${{ github.sha }}
 
+  # deploy:
+  #   needs: build-and-push
+  #   runs-on: ubuntu-latest
+
+  #   steps:
+  #     - name: Checkout code
+  #       uses: actions/checkout@v4
+
+  #     - name: Set up kubectl
+  #       uses: azure/setup-kubectl@v4
+  #       with:
+  #         version: v1.29.0
+
+  #     - name: Configure kubeconfig
+  #       run: |
+  #         mkdir -p ~/.kube
+  #         echo "${{ secrets.KUBE_CONFIG }}" | base64 --decode > ~/.kube/config
+
+  #     - name: Deploy to Kubernetes
+  #       run: |
+  #         kubectl apply -f k8s/
+  
   deploy:
     needs: build-and-push
-    # runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/master'
     runs-on: self-hosted
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up kubectl
-        uses: azure/setup-kubectl@v4
-        with:
-          version: v1.29.0
-
-      - name: Configure kubeconfig
+      - name: Verify cluster access
         run: |
-          mkdir -p ~/.kube
-          echo "${{ secrets.KUBE_CONFIG }}" | base64 --decode > ~/.kube/config
+          kubectl cluster-info
+          kubectl get nodes
 
       - name: Deploy to Kubernetes
         run: |
