@@ -30,8 +30,8 @@ jobs:
           file: docker/Dockerfile
           push: true
           tags: |
-            docker build -t raushan0291/eka-api:latest -f docker/Dockerfile .
-            docker push raushan0291/eka-api:latest
+            raushan0291/eka-api:latest
+            raushan0291/eka-api:${{ github.sha }}
 
   deploy:
     needs: build-and-push
