@@ -216,6 +216,14 @@ bash scripts/stop_k8s.sh
 * **Grafana** for monitoring and dashboard visualization
 * **Kubernetes (Deployments, Services, Ingress)** for orchestration
 
+System Architecture
+
+![System Architecture](./docs/coding_agent_architecture.png)
+
+Sequence Diagram
+
+![Sequence Diagram](./docs/coding_agent_architecture_simplified.png)
+
 ---
 
 ## 📬 Support
