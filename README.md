@@ -218,11 +218,11 @@ bash scripts/stop_k8s.sh
 
 System Architecture
 
-![System Architecture](./docs/coding_agent_architecture.png)
+![System Architecture](./docs/enterprise_ai_assistant_platform_architecture.png)
 
 Sequence Diagram
 
-![Sequence Diagram](./docs/coding_agent_architecture_simplified.png)
+![Sequence Diagram](./docs/enterprise_ai_assistant_platform_sequence_diagram.png)
 
 ---
 
